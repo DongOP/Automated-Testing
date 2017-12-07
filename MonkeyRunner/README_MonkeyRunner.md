@@ -7,3 +7,4 @@ Python使用版本3.6.3
 名称 | 作用
 ------- | -------
 insatall_start_app.py| 安装apk，启动首页activity
+inputs_click.py| 输入用户名密码，点击按钮
