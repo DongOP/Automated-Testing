@@ -3,7 +3,7 @@
 from com.android.monkeyrunner.easy import EasyMonkeyDevice, By  
 from com.android.monkeyrunner import MonkeyRunner, MonkeyDevice  
   
-if __name__ == '__main__':  
+def testlogin():  
     import codecs  
     codecs.register(lambda name: codecs.lookup('utf-8') if name == 'cp65001' else None)  
   
@@ -44,3 +44,6 @@ if __name__ == '__main__':
   
     device.press('KEYCODE_BACK')
     print ("Test end")
+
+if __name__ == '__main__':
+	testlogin()
