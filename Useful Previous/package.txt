@@ -1,0 +1,7 @@
+com.jui.feedback
+com.jianui.filemanager
+com.android.deskclock
+com.pada.gamecenter
+com.pada.padasf
+com.android.calculator2
+
