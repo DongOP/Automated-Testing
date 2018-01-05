@@ -15,6 +15,10 @@ public class MemoryHelper {
     private MemoryHelper() {
     }
 
+    private MemoryHelper(Context context) {
+        this.mContext = context;
+    }
+
     public static MemoryHelper getInstance(Context context) {
         if (ourInstance == null) {
             ourInstance = new MemoryHelper(context);
@@ -35,7 +39,4 @@ public class MemoryHelper {
         mTextView.setText(mContext.getString(android.R.string.ok));
     }
 
-    private MemoryHelper(Context context) {
-        this.mContext = context;
-    }
 }
