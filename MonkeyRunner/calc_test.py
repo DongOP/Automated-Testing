@@ -8,7 +8,7 @@ import sys
 
 from com.android.monkeyrunner import MonkeyRunner,MonkeyDevice,MonkeyImage
 
-logFile = open("C:\\Users\\Administrator\\Desktop\\Automated-Testing\\MonkeyRunner\\calc_log.txt","a+")
+logFile = open("C:\\Users\\Administrator\\Desktop\\Automated-Testing\\MonkeyRunner\\log\\calc_log.txt","a+")
 
 #连接设备
 device = MonkeyRunner.waitForConnection()

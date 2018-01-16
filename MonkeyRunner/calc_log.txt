@@ -1,4 +1,0 @@
-Device Connected successfully!
-Start calculatorWait 5sGet widget objectDevice Connected successfully!
-Start calculatorWait 5sGet widget objectGet location of viewtouch 8*9=Device Connected successfully!
-Start calculatorWait 5sGet widget object
