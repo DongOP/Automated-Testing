@@ -1,0 +1,159 @@
+package com.dong.apitestpro.activity;
+
+import android.content.Context;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.Toast;
+
+import com.dong.apitestpro.R;
+import com.dong.apitestpro.fragment.MyListFragment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+    private DrawerLayout mDrawerLayout;
+    private NavigationView mNagigationView;
+    private Toolbar mToolbar;
+    private static Toast mToast;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        initView();
+        initTranslucentStatus();
+    }
+
+    private void initTranslucentStatus() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            WindowManager.LayoutParams localLayoutParams = getWindow().getAttributes();
+            localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
+            if(Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP){
+                //将侧边栏顶部延伸至status bar
+                mDrawerLayout.setFitsSystemWindows(true);
+                //将主页面顶部延伸至status bar
+                mDrawerLayout.setClipToPadding(false);
+            }
+        }
+    }
+
+    private void initView() {
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.id_drawerlayout);
+        mNagigationView = (NavigationView) findViewById(R.id.id_navigationview);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        // 设置导航菜单宽度为屏幕一半
+        ViewGroup.LayoutParams params = mNagigationView.getLayoutParams();
+        params.width = getResources().getDisplayMetrics().widthPixels / 2;
+        mNagigationView.setLayoutParams(params);
+        // 添加item点击事件
+        mNagigationView.setNavigationItemSelectedListener(this);
+        if (mToolbar != null) {
+            setSupportActionBar(mToolbar);
+        }
+        // 设置Toggle、addDrawerListener
+        ActionBarDrawerToggle mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open, R.string.close);
+        mActionBarDrawerToggle.syncState();
+        mDrawerLayout.addDrawerListener(mActionBarDrawerToggle);
+
+        // 添加fragment，将ViewPager与TabLayout关联
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        if (viewPager != null) {
+            setupViewPager(viewPager);
+        }
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        // 隐藏侧滑栏
+        mDrawerLayout.closeDrawers();
+        switch (id) {
+            case R.id.nav_menu_categories:
+                showToast(this, "模块1");
+                break;
+            case R.id.nav_menu_setting:
+                showToast(this, "设置");
+                break;
+            case R.id.nav_menu_feedback:
+                showToast(this, "关于");
+                break;
+            case R.id.nav_menu_loginOut:
+                showToast(this, "退出");
+                break;
+            case R.id.action_qq:
+                showToast(this, "QQ...");
+                break;
+            case R.id.action_weixin:
+                showToast(this, "WeChat...");
+                break;
+        }
+        item.setChecked(true);
+
+        return true;
+    }
+
+    public static void showToast(Context context, String resid) {
+        if (mToast == null) {
+            mToast = Toast.makeText(context, "", Toast.LENGTH_SHORT);
+        }
+        mToast.setText(resid);
+        mToast.show();
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        Adapter adapter = new Adapter(getSupportFragmentManager());
+        adapter.addFragment(new MyListFragment(), "Fragment 1");
+        adapter.addFragment(new MyListFragment(), "Fragment 2");
+        adapter.addFragment(new MyListFragment(), "Fragment 3");
+        viewPager.setAdapter(adapter);
+    }
+
+    static class Adapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragments = new ArrayList<>();
+        private final List<String> mFragmentTitles = new ArrayList<>();
+
+        public Adapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragments.add(fragment);
+            mFragmentTitles.add(title);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragments.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragments.size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitles.get(position);
+        }
+    }
+}

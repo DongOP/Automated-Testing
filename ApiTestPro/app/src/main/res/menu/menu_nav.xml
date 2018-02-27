@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group android:checkableBehavior="single">
+        <!--android:icon="@mipmap/ic_home_white_48dp"-->
+        <!--android:icon="@mipmap/ic_settings_white_48dp"-->
+        <!--android:icon="@mipmap/ic_message_white_48dp"-->
+        <!--android:icon="@mipmap/login_out"-->
+        <!--android:icon="@android:drawable/ic_btn_speak_now"-->
+        <!--android:icon="@android:drawable/ic_dialog_alert"-->
+
+        <item
+            android:id="@+id/nav_menu_categories"
+            android:checked="true"
+            android:title="@string/item_1" />
+
+        <item
+            android:id="@+id/nav_menu_setting"
+            android:title="基本设置" />
+
+        <item
+            android:id="@+id/nav_menu_feedback"
+            android:title="关于我们" />
+        <item
+            android:id="@+id/nav_menu_loginOut"
+            android:title="退出登录" />
+
+        <item
+            android:id="@+id/action_other"
+            android:checked="false"
+            android:title="其他操作">
+
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/action_qq"
+                        android:checked="false"
+                        android:title="QQ好友" />
+
+                    <item
+                        android:id="@+id/action_weixin"
+                        android:checked="false"
+                        android:title="微信好友" />
+
+                </group>
+            </menu>
+        </item>
+
+    </group>
+</menu>

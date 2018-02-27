@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">"ApiTest "</string>
+
+    <string name="author">Dong</string>
+    <string name="open">打开</string>
+    <string name="close">关闭</string>
+    <string name="item_1">模块1</string>
+
+</resources>
