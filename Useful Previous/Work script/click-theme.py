@@ -27,6 +27,15 @@ def clickNo_3():
     # #滑动
     # os.system('adb shell input swipe 200 300 200 520')
     # sleep(0)
+    # 输入文字
+    # adb shell input text test123456
+    # 发送按键事件
+    # adb shell input keyevent KEYCODE_HOME
+    # 滑动事件
+    # adb shell input swipe 900 500 100 500
+    # 截图
+    # adb shell screencap -p /sdcard/screen.png
+    # 
 
 if __name__ == '__main__':
     total_times = 100
