@@ -1,19 +1,19 @@
-#!/usr/bin/python
+ï»¿#!/usr/bin/python
 #coding=utf-8
 
 import os
 from time import sleep
 
 def filemanager():
-	#Æô¶¯ÕËºÅÖĞĞÄ,Í¨¹ıadb logcat -s ActivityManager»ñÈ¡Æô¶¯appµÄÀàÃû
+	#å¯åŠ¨è´¦å·ä¸­å¿ƒ,é€šè¿‡adb logcat -s ActivityManagerè·å–å¯åŠ¨appçš„ç±»å
 	os.system('adb shell am start com.pada.padasf/.PadaAccountCenterActivity')
 	sleep(1)
 
-    #µã»÷ÉèÖÃ,Ì¨µçP80-°ËºË
+    #ç‚¹å‡»è®¾ç½®,å°ç”µP80-å…«æ ¸
 	os.system('adb shell input tap 260 636')
 	sleep(1)
 
-    #°æ±¾Éı¼¶Ö´ĞĞ´ÎÊı
+    #ç‰ˆæœ¬å‡çº§æ‰§è¡Œæ¬¡æ•°
 	total_times = 50
 	times = 1
 
@@ -24,7 +24,7 @@ def filemanager():
 
 
 def upgrade():
-    #µã»÷°æ±¾Éı¼¶
+    #ç‚¹å‡»ç‰ˆæœ¬å‡çº§
 	os.system('adb shell input tap 600 160')
 	sleep(3)
 

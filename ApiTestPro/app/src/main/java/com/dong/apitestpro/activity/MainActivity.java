@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView mNagigationView;
     private Toolbar mToolbar;
     private static Toast mToast;
+	private int mCountTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

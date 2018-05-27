@@ -1,6 +1,6 @@
-@echo off
+锘緻echo off
 
-rem 要循环的次数
+rem 瑕佸惊鐜殑娆℃暟
 set Dong_CNT=10
 
 :REPEAT_FRAG
@@ -9,21 +9,19 @@ set /a Dong_CNT=%Dong_CNT%-1
 
 if %Dong_CNT% EQU 0 goto REPEAT_OUT
 
-rem 需要安装的apk文件所在的路径
+rem 闇�瑕佸畨瑁呯殑apk鏂囦欢鎵�鍦ㄧ殑璺緞
 set work_path=C:\Users\Lenovo\MytestAPKs
 
 cd /d %work_path% 
 
-rem 安装apk
+rem 瀹夎apk
 adb install JuiUserFeedback.apk
 
-rem 卸载apk
+rem 鍗歌浇apk
 adb uninstall com.jui.feedback
 
-rem 打印次数
+rem 鎵撳嵃娆℃暟
 echo %Dong_CNT%
-
-
 
 goto REPEAT_FRAG
 
