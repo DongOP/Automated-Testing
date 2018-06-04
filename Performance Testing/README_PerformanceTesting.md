@@ -6,7 +6,7 @@
 LeakcanaryDemo| LeakCanary工具的使用，检测并定位存在的内存泄漏(IDE：Android Studio)
 
 
-# LeakCanary使用说明
+# LeakCanary使用说明及原理分析
 ![](https://github.com/square/leakcanary/raw/master/assets/screenshot.png)
 
 ## 监控Activity对象
@@ -28,7 +28,7 @@ LeakcanaryDemo| LeakCanary工具的使用，检测并定位存在的内存泄漏
 	  }
 	}
 
-> 我们衣橱Application类为`JzCircle\app\src\main\java\com\jd\wxsq\app\application\SysApplication.java`
+> 如Application类为`\application\AlbumApplication.java`
 
 然后编译安装即可。
 
