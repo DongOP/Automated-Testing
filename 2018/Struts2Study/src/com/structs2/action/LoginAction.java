@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Created by Dong on 2018/6/7.
+ * struts2 Demo
  */
 public class LoginAction extends ActionSupport {
     private String username;
