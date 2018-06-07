@@ -4,4 +4,4 @@
 
 文件夹 | 说明
 ------- | -------
-Struts2Study| Struts2Study学习笔记
+Struts2Study| Struts2 框架学习笔记
