@@ -10,3 +10,4 @@ Performance Testing| 性能测试相关笔记
 Unit Test| 单元测试相关笔记
 Useful Previous| 以前零碎的脚本
 ApiTestPro | 使用Okhttp进行 API 接口测试
+Scripts | 使用Appium进行 UI 自动化测试
